@@ -6,7 +6,7 @@ class Converter
 
     protected $rules;
 
-    protected $correction;
+    protected $corrections;
 
     /**
      * Convert content from one encoding to another
@@ -48,7 +48,7 @@ class Converter
      */
     protected function correct($content)
     {
-        $corrections = $this->correction;
+        $corrections = $this->corrections;
         if (!empty($corrections)) {
             foreach ($corrections as $pattern => $replacement) {
                 $reg_count = 0;

@@ -2,32 +2,45 @@
 namespace Kanaung;
 
 use Kanaung\Converter\Converter;
+use Kanaung\Rules\Rules;
 
 class ConverterService
 {
     protected static $rules;
 
+    protected static $rules_name;
+
     protected static $corrections;
 
     public static function convert($content, $from_font, $to_font, $options = [])
     {
-        self::rules($from_font, $to_font);
-        self::corrections($from_font, $to_font);
+        self::setRulesName($from_font, $to_font);
+        $rules_name = self::getRules();
         $converter = new Converter();
-        $converter->setRules(self::$rules);
-        $converter->setCorrections(self::$corrections);
+        $rules = $rules_name['rules'];
+        $corrections = $rules_name['corrections'];
+        $converter->setRules($rules);
+        $converter->setCorrections($corrections);
         return $converter->convert($content);
-        // convert($content, $from, $to, using $options if exists)
     }
 
-    private static function rules($from_font, $to_font)
+    private function setRulesName($from_font, $to_font)
     {
-        return self::$rules = [];
+        self::$rules_name = strtolower($from_font) . '_' . strtolower($to_font);
     }
 
-    private static function corrections($from_font, $to_font)
+    private function getRules()
     {
-        return self::$corrections = [];
+        $rules_name = self::$rules_name;
+        $rules = new Rules();
+        return $rules->{$rules_name};
+    }
+
+    public function setRules(array $rulesArray)
+    {
+        $rules_name = self::$rules_name;
+        $rules = new Rules();
+        $rules->{$rules_name} = $rulesArray;
     }
 
     public function __call($name, $arguments)
