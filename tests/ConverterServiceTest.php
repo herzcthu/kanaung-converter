@@ -6,25 +6,25 @@ use PHPUnit\Framework\TestCase;
 
 class ConverterServiceTest extends TestCase
 {
-    public function testConverter()
+    public function testZawgyiUnicode()
     {
         $content = "ေနေကာင္းလား";
         $from = "zawgyi";
-        $to = "myanmar3";
+        $to = "unicode";
         $converter = new ConverterService();
         $convert = $converter->convert($content, $from, $to);
         $result = "နေကောင်းလား";
         $this->assertEquals($result, $convert);
     }
 
-    public function testConverterStatic()
+    public function testUnicodeZawgyi()
     {
-        $content = "ေနေကာင္းလား";
-        $from = "zawgyi";
-        $to = "myanmar3";
-        $convert = ConverterService::convert($content, $from, $to);
-        echo $convert;
-        $result = "နေကောင်းလား";
+        $content = "နေကောင်းလား";
+        $from = "unicode";
+        $to = "zawgyi";
+        $converter = new ConverterService();
+        $convert = $converter->convert($content, $from, $to);
+        $result = "ေနေကာင္းလား";
         $this->assertEquals($result, $convert);
     }
 }

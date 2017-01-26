@@ -11,7 +11,6 @@
             "email": "sithu@thwin.net"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "Kanaung\\": "src/"

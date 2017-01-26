@@ -3,7 +3,7 @@ namespace Kanaung\Rules;
 
 class Rules
 {
-    protected $zawgyi_myanmar3 = [
+    protected $zawgyi_unicode = [
         'rules' => [
             'ဳ' => 'ု',
             'ဴ' => 'ူ',
@@ -89,7 +89,7 @@ class Rules
         ],
     ];
 
-    protected $myanmar3_zawgyi = [
+    protected $unicode_zawgyi = [
         'rules' => [
             '်' => '္',
             'ျ' => '်',
