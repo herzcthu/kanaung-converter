@@ -10,7 +10,7 @@ class ConverterServiceTest extends TestCase
     {
         $content = "ေနေကာင္းလား";
         $from = "zawgyi";
-        $to = "unicode";
+        $to = "myanmar3";
         $converter = new ConverterService();
         $convert = $converter->convert($content, $from, $to);
         $result = "နေကောင်းလား";

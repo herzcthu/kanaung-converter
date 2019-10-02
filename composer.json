@@ -2,7 +2,7 @@
     "name": "herzcthu/kanaung-converter",
     "description": "Burmese font converter for composer",
     "require-dev": {
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^8.3"
     },
     "license": "MIT",
     "authors": [
