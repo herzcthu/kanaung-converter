@@ -27,4 +27,15 @@ class ConverterServiceTest extends TestCase
         $result = "ေနေကာင္းလား";
         $this->assertEquals($result, $convert);
     }
+
+    public function testInnwaUni()
+    {
+        $content = "aeaumif;vm;";
+        $from = "innwa";
+        $to = "uni";
+        $converter = new ConverterService();
+        $convert = $converter->convert($content, $from, $to);
+        $result = "နေကောင်းလား";
+        $this->assertEquals($result, $convert);
+    }
 }
